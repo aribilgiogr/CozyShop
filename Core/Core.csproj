@@ -43,6 +43,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstracts\Bases\BaseEntity.cs" />
+    <Compile Include="Abstracts\IRepositories\IAddressRepository.cs" />
+    <Compile Include="Abstracts\IRepositories\ICartItemRepository.cs" />
+    <Compile Include="Abstracts\IRepositories\ICartRepository.cs" />
+    <Compile Include="Abstracts\IRepositories\ICategoryRepository.cs" />
+    <Compile Include="Abstracts\IRepositories\ICoffeeBeanRepository.cs" />
+    <Compile Include="Abstracts\IRepositories\ICouponRepository.cs" />
+    <Compile Include="Abstracts\IRepositories\ICustomerRepository.cs" />
+    <Compile Include="Abstracts\IRepositories\IEquipmentRepository.cs" />
+    <Compile Include="Abstracts\IRepositories\IOrderItemRepository.cs" />
+    <Compile Include="Abstracts\IRepositories\IOrderRepository.cs" />
+    <Compile Include="Abstracts\IRepositories\IOriginRepository.cs" />
+    <Compile Include="Abstracts\IRepositories\IPaymentRepository.cs" />
+    <Compile Include="Abstracts\IRepositories\IProductRepository.cs" />
+    <Compile Include="Abstracts\IRepositories\IReviewRepository.cs" />
+    <Compile Include="Abstracts\IRepositories\IShipmentRepository.cs" />
     <Compile Include="Concrete\Entities\Address.cs" />
     <Compile Include="Concrete\Entities\Cart.cs" />
     <Compile Include="Concrete\Entities\CartItem.cs" />

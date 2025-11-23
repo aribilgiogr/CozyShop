@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstracts\Bases\BaseEntity.cs" />
+    <Compile Include="Abstracts\IUnitOfWork.cs" />
     <Compile Include="Abstracts\IRepositories\IAddressRepository.cs" />
     <Compile Include="Abstracts\IRepositories\ICartItemRepository.cs" />
     <Compile Include="Abstracts\IRepositories\ICartRepository.cs" />

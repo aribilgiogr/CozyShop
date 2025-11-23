@@ -27,5 +27,9 @@ namespace Core.Concrete.Entities
         public string ShippingDistrict { get; set; }
         public string ShippingAddressLine { get; set; }
         public string ShippingPostalCode { get; set; }
+
+        public virtual Shipment Shipment { get; set; }
+        public virtual Payment Payment { get; set; }
+        public virtual ICollection<Review> Reviews { get; set; } = new HashSet<Review>();
     }
 }

@@ -22,5 +22,8 @@ namespace Core.Concrete.Entities
         public bool EmailConfirmed { get; set; } = false;
         public DateTime? LastLoginAt { get; set; }
         public virtual ICollection<Address> Addresses { get; set; } = new HashSet<Address>();
+        public virtual ICollection<Cart> Carts { get; set; } = new HashSet<Cart>();
+        public virtual ICollection<Order> Orders { get; set; } = new HashSet<Order>();
+        public virtual ICollection<Review> Reviews { get; set; } = new HashSet<Review>();
     }
 }

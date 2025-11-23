@@ -48,12 +48,16 @@
     <Compile Include="Concrete\Entities\CartItem.cs" />
     <Compile Include="Concrete\Entities\Category.cs" />
     <Compile Include="Concrete\Entities\CoffeeBean.cs" />
+    <Compile Include="Concrete\Entities\Coupon.cs" />
     <Compile Include="Concrete\Entities\Customer.cs" />
     <Compile Include="Concrete\Entities\Equipment.cs" />
     <Compile Include="Concrete\Entities\Order.cs" />
     <Compile Include="Concrete\Entities\OrderItem.cs" />
     <Compile Include="Concrete\Entities\Origin.cs" />
+    <Compile Include="Concrete\Entities\Payment.cs" />
     <Compile Include="Concrete\Entities\Product.cs" />
+    <Compile Include="Concrete\Entities\Review.cs" />
+    <Compile Include="Concrete\Entities\Shipment.cs" />
     <Compile Include="Concrete\Enums\ProcessMethod.cs" />
     <Compile Include="Concrete\Enums\ProductType.cs" />
     <Compile Include="Concrete\Enums\RoastLevel.cs" />

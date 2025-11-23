@@ -24,6 +24,10 @@ namespace Core.Concrete.Entities
         public bool IsFeatured { get; set; } = false;
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
-        public virtual ICollection<CartItem> Items { get; set; } = new HashSet<CartItem>();
+        public virtual ICollection<CartItem> CartItems { get; set; } = new HashSet<CartItem>();
+        public virtual ICollection<OrderItem> OrderItems { get; set; } = new HashSet<OrderItem>();
+        public virtual CoffeeBean CoffeeBean { get; set; }
+        public virtual Equipment Equipment { get; set; }
+        public virtual ICollection<Review> Reviews { get; set; } = new HashSet<Review>();
     }
 }

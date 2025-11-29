@@ -10,7 +10,6 @@ namespace Core.Concrete.Entities
 {
     public class Shipment : BaseEntity
     {
-        public int OrderId { get; set; }
         public virtual Order Order { get; set; }
         public string CarrierName { get; set; }
         public string TrackingNumber { get; set; }

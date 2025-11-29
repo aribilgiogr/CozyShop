@@ -28,5 +28,27 @@ namespace Data.Contexts
         public virtual DbSet<Shipment> Shipments { get; set; }
         public virtual DbSet<Review> Reviews { get; set; }
         public virtual DbSet<Coupon> Coupons { get; set; }
+
+        // OnModelCreating metodu, Entity Framework'te veritabanı modelinin nasıl oluşturulacağını yapılandırmak için kullanılır
+        // Bu metod DbContext sınıfından override edilerek özelleştirilir
+        // Veritabanı şeması oluşturulmadan önce, EF bu metodu çağırarak model yapılandırmasını alır
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            // modelBuilder parametresi, entity'ler arasındaki ilişkileri, tablo isimlerini,
+            // primary key'leri, foreign key'leri ve diğer veritabanı kısıtlamalarını tanımlamak için kullanılır
+
+            // Order ve Payment arasında 1:0..1 (bire sıfır veya bir) ilişkisi kuruluyor
+            // Payment tablosunda OrderId foreign key olarak ekleniyor
+            // Bir siparişin ödeme bilgisi olabilir veya olmayabilir
+            modelBuilder.Entity<Order>().HasOptional(o => o.Payment).WithRequired(p => p.Order).Map(m => m.MapKey("OrderId"));
+
+            // Order ve Shipment arasında 1:0..1 (bire sıfır veya bir) ilişkisi kuruluyor
+            // Shipment tablosunda OrderId foreign key olarak ekleniyor
+            // Bir siparişin kargo bilgisi olabilir veya olmayabilir
+            modelBuilder.Entity<Order>().HasOptional(o => o.Shipment).WithRequired(s => s.Order).Map(m => m.MapKey("OrderId"));
+
+            // Bu metod içinde yapılan tüm yapılandırmalar, Data Annotations (attribute'lar) yerine
+            // Fluent API kullanılarak yapılır ve daha esnek yapılandırma imkanı sağlar
+        }
     }
 }

@@ -1,10 +1,11 @@
-﻿using Core.Abstracts.IServices;
+﻿using AutoMapper;
+using Core.Abstracts;
+using Core.Abstracts.IServices;
 using Core.Concrete.DTOs;
+using Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Services
 {
@@ -27,7 +28,21 @@ namespace Business.Services
 
         public IEnumerable<CategoryDTO> GetAllCategories()
         {
-            throw new NotImplementedException();
+            using (IUnitOfWork uow = new UnitOfWork())
+            {
+                // Aktif ve silinmemiş kategorileri getirsin.
+                var categories = uow.CategoryRepository.Find(x => x.Active && !x.Deleted, "Products");
+
+                //return categories.Select(x => new CategoryDTO
+                //{
+                //    Id = x.Id,
+                //    Name = x.Name,
+                //    Description = x.Description,
+                //    ProductCount = x.Products.Count()
+                //});
+
+                return AutoMapperConfig.Mapper.Map<IEnumerable<CategoryDTO>>(categories);
+            }
         }
 
         public IEnumerable<ProductListDTO> GetBestSellers(int count = 10)

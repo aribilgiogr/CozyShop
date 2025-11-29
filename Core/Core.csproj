@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstracts\Bases\BaseEntity.cs" />
+    <Compile Include="Abstracts\IServices\IAuthService.cs" />
     <Compile Include="Abstracts\IUnitOfWork.cs" />
     <Compile Include="Abstracts\IRepositories\IAddressRepository.cs" />
     <Compile Include="Abstracts\IRepositories\ICartItemRepository.cs" />
@@ -59,6 +60,12 @@
     <Compile Include="Abstracts\IRepositories\IProductRepository.cs" />
     <Compile Include="Abstracts\IRepositories\IReviewRepository.cs" />
     <Compile Include="Abstracts\IRepositories\IShipmentRepository.cs" />
+    <Compile Include="Concrete\DTOs\AddressDTOs.cs" />
+    <Compile Include="Concrete\DTOs\AuthDTOs.cs" />
+    <Compile Include="Concrete\DTOs\CartDTOs.cs" />
+    <Compile Include="Concrete\DTOs\CustomerDTOs.cs" />
+    <Compile Include="Concrete\DTOs\OrderDTOs.cs" />
+    <Compile Include="Concrete\DTOs\ProductDTOs.cs" />
     <Compile Include="Concrete\Entities\Address.cs" />
     <Compile Include="Concrete\Entities\Cart.cs" />
     <Compile Include="Concrete\Entities\CartItem.cs" />

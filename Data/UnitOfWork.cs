@@ -18,6 +18,12 @@ namespace Data
             db = new CozyDb();
         }
 
+        /*  
+            - Repository'ler sadece ihtiyaç duyulduğunda oluşturulur (Lazy Loading)
+            - ?? operatörü: Null ise yeni instance oluştur, değilse mevcut instance'ı kullan
+            - Performans optimizasyonu sağlar
+            - Memory kullanımını azaltır
+        */
         private IAddressRepository addressRepository;
         public IAddressRepository AddressRepository => addressRepository = addressRepository ?? new AddressRepository(db);
 

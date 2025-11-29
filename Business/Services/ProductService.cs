@@ -2,87 +2,90 @@
 using Core.Concrete.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Business.Services
 {
     public class ProductService : IProductService
     {
-        public bool CanUserReviewProductAsync(int userId, int productId)
+        public bool CanUserReviewProduct(int userId, int productId)
         {
             throw new NotImplementedException();
         }
 
-        public bool CheckStockAvailabilityAsync(int productId, int quantity)
+        public bool CheckStockAvailability(int productId, int quantity)
         {
             throw new NotImplementedException();
         }
 
-        public ReviewDTO CreateReviewAsync(CreateReviewDTO review, int userId)
+        public ReviewDTO CreateReview(CreateReviewDTO review, int userId)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<CategoryDTO> GetAllCategoriesAsync()
+        public IEnumerable<CategoryDTO> GetAllCategories()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<ProductListDTO> GetBestSellersAsync(int count = 10)
+        public IEnumerable<ProductListDTO> GetBestSellers(int count = 10)
         {
             throw new NotImplementedException();
         }
 
-        public CategoryDTO GetCategoryByIdAsync(int id)
+        public CategoryDTO GetCategoryById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<ProductListDTO> GetFeaturedProductsAsync(int count = 10)
+        public IEnumerable<ProductListDTO> GetFeaturedProducts(int count = 10)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<ProductListDTO> GetNewArrivalsAsync(int count = 10)
+        public IEnumerable<ProductListDTO> GetNewArrivals(int count = 10)
         {
             throw new NotImplementedException();
         }
 
-        public ProductDetailDTO GetProductByIdAsync(int id)
+        public ProductDetailDTO GetProductById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<ReviewDTO> GetProductReviewsAsync(int productId, int page = 1, int pageSize = 10)
+        public IEnumerable<ReviewDTO> GetProductReviews(int productId, int page = 1, int pageSize = 10)
         {
             throw new NotImplementedException();
         }
 
-        public ProductSearchResultDTO GetProductsAsync(ProductFilterDTO filter)
+        public ProductSearchResultDTO GetProducts(ProductFilterDTO filter)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<ProductListDTO> GetProductsByCategoryAsync(int categoryId, int page = 1, int pageSize = 12)
+        public IEnumerable<ProductListDTO> GetProductsByCategory(int categoryId, int page = 1, int pageSize = 12)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<ProductListDTO> GetProductsByOriginAsync(string country, int page = 1, int pageSize = 12)
+        public IEnumerable<ProductListDTO> GetProductsByOrigin(string country, int page = 1, int pageSize = 12)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<ProductListDTO> GetRelatedProductsAsync(int productId, int count = 4)
+        public IEnumerable<ProductListDTO> GetRelatedProducts(int productId, int count = 4)
         {
             throw new NotImplementedException();
         }
 
-        public ProductSearchResultDTO SearchProductsAsync(string searchTerm, int page = 1, int pageSize = 12)
+        public ProductSearchResultDTO SearchProducts(string searchTerm, int page = 1, int pageSize = 12)
         {
             throw new NotImplementedException();
         }
 
-        public bool UpdateStockAsync(int productId, int quantity)
+        public bool UpdateStock(int productId, int quantity)
         {
             throw new NotImplementedException();
         }

@@ -7,29 +7,29 @@ namespace Core.Abstracts.IServices
     public interface IProductService
     {
         // Product CRUD Operations
-        ProductDetailDTO GetProductByIdAsync(int id);
-        ProductSearchResultDTO GetProductsAsync(ProductFilterDTO filter);
-        IEnumerable<ProductListDTO> GetFeaturedProductsAsync(int count = 10);
-        IEnumerable<ProductListDTO> GetNewArrivalsAsync(int count = 10);
-        IEnumerable<ProductListDTO> GetBestSellersAsync(int count = 10);
-        IEnumerable<ProductListDTO> GetRelatedProductsAsync(int productId, int count = 4);
+        ProductDetailDTO GetProductById(int id);
+        ProductSearchResultDTO GetProducts(ProductFilterDTO filter);
+        IEnumerable<ProductListDTO> GetFeaturedProducts(int count = 10);
+        IEnumerable<ProductListDTO> GetNewArrivals(int count = 10);
+        IEnumerable<ProductListDTO> GetBestSellers(int count = 10);
+        IEnumerable<ProductListDTO> GetRelatedProducts(int productId, int count = 4);
 
         // Category Operations
-        IEnumerable<CategoryDTO> GetAllCategoriesAsync();
-        CategoryDTO GetCategoryByIdAsync(int id);
-        IEnumerable<ProductListDTO> GetProductsByCategoryAsync(int categoryId, int page = 1, int pageSize = 12);
+        IEnumerable<CategoryDTO> GetAllCategories();
+        CategoryDTO GetCategoryById(int id);
+        IEnumerable<ProductListDTO> GetProductsByCategory(int categoryId, int page = 1, int pageSize = 12);
 
         // Review Operations
-        IEnumerable<ReviewDTO> GetProductReviewsAsync(int productId, int page = 1, int pageSize = 10);
-        ReviewDTO CreateReviewAsync(CreateReviewDTO review, int userId);
-        bool CanUserReviewProductAsync(int userId, int productId);
+        IEnumerable<ReviewDTO> GetProductReviews(int productId, int page = 1, int pageSize = 10);
+        ReviewDTO CreateReview(CreateReviewDTO review, int userId);
+        bool CanUserReviewProduct(int userId, int productId);
 
         // Search Operations
-        ProductSearchResultDTO SearchProductsAsync(string searchTerm, int page = 1, int pageSize = 12);
-        IEnumerable<ProductListDTO> GetProductsByOriginAsync(string country, int page = 1, int pageSize = 12);
+        ProductSearchResultDTO SearchProducts(string searchTerm, int page = 1, int pageSize = 12);
+        IEnumerable<ProductListDTO> GetProductsByOrigin(string country, int page = 1, int pageSize = 12);
 
         // Stock Operations
-        bool CheckStockAvailabilityAsync(int productId, int quantity);
-        bool UpdateStockAsync(int productId, int quantity);
+        bool CheckStockAvailability(int productId, int quantity);
+        bool UpdateStock(int productId, int quantity);
     }
 }

@@ -1,5 +1,9 @@
 ﻿using Core.Concrete.Entities;
+using System.Collections;
+using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.SqlClient;
+using System.Linq;
 
 namespace Data.Contexts
 {
@@ -9,20 +13,20 @@ namespace Data.Contexts
         {
         }
 
-        public DbSet<Customer> Customer { get; set; }
-        public DbSet<Address> Addresses { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Origin> Origins { get; set; }
-        public DbSet<Product> Products { get; set; }
-        public DbSet<CoffeeBean> CoffeeBeans { get; set; }
-        public DbSet<Equipment> Equipment { get; set; }
-        public DbSet<Cart> Carts { get; set; }
-        public DbSet<CartItem> CartItems { get; set; }
-        public DbSet<Order> Orders { get; set; }
-        public DbSet<OrderItem> OrderItems { get; set; }
-        public DbSet<Payment> Payments { get; set; }
-        public DbSet<Shipment> Shipments { get; set; }
-        public DbSet<Review> Reviews { get; set; }
-        public DbSet<Coupon> Coupons { get; set; }
+        public virtual DbSet<Customer> Customer { get; set; }
+        public virtual DbSet<Address> Addresses { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Origin> Origins { get; set; }
+        public virtual DbSet<Product> Products { get; set; }
+        public virtual DbSet<CoffeeBean> CoffeeBeans { get; set; }
+        public virtual DbSet<Equipment> Equipment { get; set; }
+        public virtual DbSet<Cart> Carts { get; set; }
+        public virtual DbSet<CartItem> CartItems { get; set; }
+        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<OrderItem> OrderItems { get; set; }
+        public virtual DbSet<Payment> Payments { get; set; }
+        public virtual DbSet<Shipment> Shipments { get; set; }
+        public virtual DbSet<Review> Reviews { get; set; }
+        public virtual DbSet<Coupon> Coupons { get; set; }
     }
 }

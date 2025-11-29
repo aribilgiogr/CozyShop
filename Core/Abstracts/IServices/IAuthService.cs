@@ -1,17 +1,26 @@
 ﻿using Core.Concrete.DTOs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.Abstracts.IServices
 {
     public interface IAuthService
     {
-        AuthResponseDTO Login(LoginDTO model);
-        AuthResponseDTO Register(RegisterDTO model);
-        void ForgotPassword(string email);
-        bool ChangePassword(ChangePasswordDTO model);
+        // Authentication Operations
+        AuthResponseDTO Register(RegisterDTO registerDto);
+        AuthResponseDTO Login(LoginDTO loginDto);
+        bool Logout(int userId);
+
+        // Password Operations
+        bool ChangePassword(int userId, ChangePasswordDTO changePasswordDto);
+        bool ForgotPassword(string email);
+        bool ResetPassword(string email, string token, string newPassword);
+
+        // Token Operations
+        AuthResponseDTO RefreshToken(string token);
+        bool ValidateToken(string token);
+
+        // User Validation
+        bool IsEmailExists(string email);
+        bool ValidateCredentials(string email, string password);
     }
 }
+

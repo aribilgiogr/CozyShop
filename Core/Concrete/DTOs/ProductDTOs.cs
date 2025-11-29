@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.Concrete.DTOs
 {
@@ -34,17 +31,14 @@ namespace Core.Concrete.DTOs
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Slug { get; set; }
         public string ShortDescription { get; set; }
         public string Description { get; set; }
         public ProductType ProductType { get; set; }
         public decimal BasePrice { get; set; }
         public decimal? DiscountedPrice { get; set; }
-        public decimal EffectivePrice => DiscountedPrice ?? BasePrice;
+        public decimal? DiscountRate { get; set; }
         public int StockQuantity { get; set; }
-        public bool IsInStock => StockQuantity > 0;
         public string SKU { get; set; }
-        public int ViewCount { get; set; }
         public CategoryDTO Category { get; set; }
 
         // Coffee Bean specific
@@ -54,7 +48,7 @@ namespace Core.Concrete.DTOs
         public EquipmentDetailDTO Equipment { get; set; }
 
         // Reviews
-        public double? AverageRating { get; set; }
+        public double? Rating { get; set; }
         public int ReviewCount { get; set; }
         public List<ReviewDTO> RecentReviews { get; set; } = new List<ReviewDTO>();
     }

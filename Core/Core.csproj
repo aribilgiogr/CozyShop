@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Abstracts\Bases\BaseEntity.cs" />
     <Compile Include="Abstracts\IServices\IAuthService.cs" />
+    <Compile Include="Abstracts\IServices\IProductService.cs" />
     <Compile Include="Abstracts\IUnitOfWork.cs" />
     <Compile Include="Abstracts\IRepositories\IAddressRepository.cs" />
     <Compile Include="Abstracts\IRepositories\ICartItemRepository.cs" />

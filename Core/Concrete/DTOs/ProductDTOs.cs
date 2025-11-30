@@ -114,7 +114,7 @@ namespace Core.Concrete.DTOs
 
     public class ProductSearchResultDTO
     {
-        public List<ProductListDTO> Products { get; set; } = new List<ProductListDTO>();
+        public IEnumerable<ProductListDTO> Products { get; set; } = new HashSet<ProductListDTO>();
         public int TotalCount { get; set; }
         public int Page { get; set; }
         public int PageSize { get; set; }

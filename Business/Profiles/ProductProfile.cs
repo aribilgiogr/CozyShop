@@ -17,6 +17,8 @@ namespace Business.Profiles
                 .ForMember(d => d.CategoryName, o => o.MapFrom(s => s.Category.Name))
                 .ForMember(d => d.ReviewCount, o => o.MapFrom(s => s.Reviews.Count))
                 .ForMember(d => d.Rating, o => o.MapFrom(s => s.Reviews.Any() ? s.Reviews.Average(r => r.Rating) : 0));
+
+            CreateMap<Origin, OriginDTO>();
         }
     }
 }

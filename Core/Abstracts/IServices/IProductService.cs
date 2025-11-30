@@ -16,6 +16,8 @@ namespace Core.Abstracts.IServices
 
         // Category Operations
         IEnumerable<CategoryDTO> GetAllCategories();
+        IEnumerable<OriginDTO> GetAllOrigins();
+        IEnumerable<string> GetAllOriginCountries();
         CategoryDTO GetCategoryById(int id);
         IEnumerable<ProductListDTO> GetProductsByCategory(int categoryId, int page = 1, int pageSize = 12);
 

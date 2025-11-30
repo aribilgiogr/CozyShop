@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Core.Abstracts;
+﻿using Core.Abstracts;
 using Core.Abstracts.IServices;
 using Core.Concrete.DTOs;
 using Data;
@@ -42,6 +41,20 @@ namespace Business.Services
                 //});
 
                 return AutoMapperConfig.Mapper.Map<IEnumerable<CategoryDTO>>(categories);
+            }
+        }
+
+        public IEnumerable<string> GetAllOriginCountries()
+        {
+            return GetAllOrigins().Select(x => x.Country).Distinct();
+        }
+
+        public IEnumerable<OriginDTO> GetAllOrigins()
+        {
+            using (IUnitOfWork uow = new UnitOfWork())
+            {
+                var origins = uow.OriginRepository.Find(x => x.Active && !x.Deleted);
+                return AutoMapperConfig.Mapper.Map<IEnumerable<OriginDTO>>(origins);
             }
         }
 
@@ -91,7 +104,57 @@ namespace Business.Services
 
         public ProductSearchResultDTO GetProducts(ProductFilterDTO filter)
         {
-            throw new NotImplementedException();
+            using (IUnitOfWork uow = new UnitOfWork())
+            {
+                var result = new ProductSearchResultDTO();
+                if (filter == null) filter = new ProductFilterDTO();
+
+                var query = uow.ProductRepository.Find(x => x.Active && !x.Deleted, "Category", "CoffeeBean", "Equipment", "Reviews");
+                // Filtering
+                if (filter.CategoryId.HasValue)
+                {
+                    query = query.Where(x => x.CategoryId == filter.CategoryId.Value);
+                }
+
+                if (filter.ProductType.HasValue)
+                {
+                    query = query.Where(x => x.ProductType == filter.ProductType.Value);
+                }
+
+                if (filter.MinPrice.HasValue)
+                {
+                    query = query.Where(x => x.BasePrice >= filter.MinPrice.Value);
+                }
+
+                if (filter.MaxPrice.HasValue)
+                {
+                    query = query.Where(x => x.BasePrice <= filter.MaxPrice.Value);
+                }
+
+                if (filter.FeaturedOnly.HasValue)
+                {
+                    query = query.Where(x => x.IsFeatured == filter.FeaturedOnly.Value);
+                }
+
+                if (filter.InStockOnly.HasValue)
+                {
+                    query = query.Where(x => x.StockQuantity > 0);
+                }
+
+                if (query.Count() > 0)
+                {
+                    result.TotalCount = query.Count();
+                    // Pagination
+                    query = query.OrderByDescending(x => x.CreatedAt)
+                             .Skip((filter.Page - 1) * filter.PageSize)
+                             .Take(filter.PageSize);
+
+                    result.Products = AutoMapperConfig.Mapper.Map<IEnumerable<ProductListDTO>>(query);
+                }
+
+                return result;
+            }
+
         }
 
         public IEnumerable<ProductListDTO> GetProductsByCategory(int categoryId, int page = 1, int pageSize = 12)

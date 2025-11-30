@@ -156,6 +156,7 @@
     <Content Include="assets\webfonts\fa-regular-400.svg" />
     <Content Include="assets\webfonts\fa-solid-900.svg" />
     <Content Include="assets\webfonts\slick.svg" />
+    <Content Include="categories.sql" />
     <Content Include="demo_theme\about.html" />
     <Content Include="demo_theme\assets\css\bootstrap.min.css" />
     <Content Include="demo_theme\assets\css\custom.css" />
@@ -220,6 +221,7 @@
     <Content Include="demo_theme\shop-single.html" />
     <Content Include="demo_theme\shop.html" />
     <Content Include="Global.asax" />
+    <Content Include="products.sql" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

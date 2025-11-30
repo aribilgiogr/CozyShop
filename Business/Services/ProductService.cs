@@ -57,12 +57,26 @@ namespace Business.Services
 
         public IEnumerable<ProductListDTO> GetFeaturedProducts(int count = 10)
         {
-            throw new NotImplementedException();
+            using (IUnitOfWork uow = new UnitOfWork())
+            {
+                var featured_products = uow.ProductRepository.Find(x => x.IsFeatured && x.Active && !x.Deleted, "Category", "Reviews")
+                                                             .OrderByDescending(x => x.CreatedAt)
+                                                             .Take(count);
+
+                return AutoMapperConfig.Mapper.Map<IEnumerable<ProductListDTO>>(featured_products);
+            }
         }
 
         public IEnumerable<ProductListDTO> GetNewArrivals(int count = 10)
         {
-            throw new NotImplementedException();
+            using (IUnitOfWork uow = new UnitOfWork())
+            {
+                var new_products = uow.ProductRepository.Find(x => x.Active && !x.Deleted, "Category", "Reviews")
+                                                        .OrderByDescending(x => x.CreatedAt)
+                                                        .Take(count);
+
+                return AutoMapperConfig.Mapper.Map<IEnumerable<ProductListDTO>>(new_products);
+            }
         }
 
         public ProductDetailDTO GetProductById(int id)

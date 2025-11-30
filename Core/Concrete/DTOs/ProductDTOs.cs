@@ -17,7 +17,9 @@ namespace Core.Concrete.DTOs
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string ShortDescription { get; set; }
         public decimal BasePrice { get; set; }
+        public ProductType ProductType { get; set; }
         public decimal? DiscountedPrice { get; set; }
         public decimal? DiscountRate { get; set; }
         public string Cover { get; set; }
@@ -25,6 +27,7 @@ namespace Core.Concrete.DTOs
         public int ReviewCount { get; set; }
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
+        public bool IsFeatured { get; set; }
     }
 
     public class ProductDetailDTO
